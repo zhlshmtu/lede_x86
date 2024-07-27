@@ -93,7 +93,7 @@ jobs:
           CONFIG_PACKAGE_luci-i18n-passwall2-zh-cn=y
           CONFIG_PACKAGE_luci-app-passwall=y
           CONFIG_PACKAGE_luci-i18n-passwall-zh-cn=y
-          CONFIG_PACKAGE_luci-app-openclash=y
+          CONFIG_PACKAGE_luci-app-poweroff=y
           CONFIG_DEVEL=y
           CONFIG_CCACHE=y
           EOF
