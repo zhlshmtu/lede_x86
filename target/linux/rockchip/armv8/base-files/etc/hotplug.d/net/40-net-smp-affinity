@@ -38,6 +38,7 @@ widora,mangopi-m28k|\
 widora,mangopi-m28k-pro)
 	set_interface_core 4 "eth0"
 	;;
+cyber,cyber3588-aib|\
 friendlyarm,nanopc-t6|\
 friendlyarm,nanopi-r5c|\
 friendlyarm,nanopi-r6c)
