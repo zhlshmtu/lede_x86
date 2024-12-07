@@ -74,9 +74,6 @@ jobs:
       - name: Update feeds
         run: |
           sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
-          # # https://github.com/coolsnowwolf/lede/issues/13015#issuecomment-2478545557
-          # sed -i 's/820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c/f6e4d41fd5fc778b06b7891457b3620da5ecea1006c6a4a41ae998109f85a800/g' toolchain/binutils/Makefile
-          # sed -i 's|^820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c|f6e4d41fd5fc778b06b7891457b3620da5ecea1006c6a4a41ae998109f85a800|' toolchain/binutils/Makefile
           # Custom feeds start
           # https://github.com/kenzok8/openwrt-packages?tab=readme-ov-file
           sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' ./feeds.conf.default
@@ -109,7 +106,7 @@ jobs:
           # CONFIG_PACKAGE_luci-i18n-passwall-zh-cn=y
           CONFIG_PACKAGE_luci-app-poweroff=y
           CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y
-          CONFIG_DEVEL=y
+          # CONFIG_DEVEL=y
           # CONFIG_CCACHE=y
           EOF
           sed -i 's/^[ \t]*//g' ./.config
