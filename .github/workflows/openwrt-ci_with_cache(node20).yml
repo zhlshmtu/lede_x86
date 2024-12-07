@@ -107,7 +107,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-poweroff=y
           CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y
           CONFIG_DEVEL=y
-          CONFIG_CCACHE=y
+          # CONFIG_CCACHE=y
           EOF
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
