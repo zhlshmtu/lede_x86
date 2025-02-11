@@ -1,22 +1,3 @@
-define Device/FitImage
-	KERNEL_SUFFIX := -uImage.itb
-	KERNEL = kernel-bin | libdeflate-gzip | fit gzip $$(KDIR)/image-$$(DEVICE_DTS).dtb
-	KERNEL_NAME := Image
-endef
-
-define Device/FitImageLzma
-	KERNEL_SUFFIX := -uImage.itb
-	KERNEL = kernel-bin | lzma | fit lzma $$(KDIR)/image-$$(DEVICE_DTS).dtb
-	KERNEL_NAME := Image
-endef
-
-define Device/UbiFit
-	KERNEL_IN_UBI := 1
-	IMAGES := factory.ubi sysupgrade.bin
-	IMAGE/factory.ubi := append-ubi
-	IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
-endef
-
 define Device/EmmcImage
 	IMAGES += factory.bin recovery.bin
 	IMAGE/factory.bin := append-kernel | pad-to 12288k | append-rootfs | append-metadata
@@ -33,8 +14,6 @@ define Device/glinet_gl-b3000
   BLOCKSIZE := 128k
   PAGESIZE := 2048
   DEVICE_DTS_CONFIG := config@mp03.5-c1
-  IMAGES += nand-factory.img
-  IMAGE/nand-factory.img := append-ubi | qsdk-ipq-factory-nand | append-metadata
   DEVICE_PACKAGES := ath11k-firmware-qcn6122 ipq-wifi-gl-b3000
 endef
 TARGET_DEVICES += glinet_gl-b3000
