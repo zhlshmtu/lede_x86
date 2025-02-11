@@ -18,7 +18,7 @@ define Device/UbiFit
 endef
 
 define Device/EmmcImage
-	IMAGES := factory.bin recovery.bin sysupgrade.bin
+	IMAGES += factory.bin recovery.bin
 	IMAGE/factory.bin := append-kernel | pad-to 12288k | append-rootfs | append-metadata
 	IMAGE/recovery.bin := append-kernel | pad-to 6144k | append-rootfs | append-metadata
 	IMAGE/sysupgrade.bin/squashfs := append-rootfs | pad-to 64k | sysupgrade-tar rootfs=$$$$@ | append-metadata
@@ -61,7 +61,8 @@ define Device/linksys_ipq50xx_mx_base
 	NAND_SIZE := 256m
 	SOC := ipq5018
 	IMAGES += factory.bin
-	IMAGE/factory.bin := append-kernel | pad-to $$$$(KERNEL_SIZE) | append-ubi | linksys-image type=$$$$(DEVICE_MODEL)
+	IMAGE/factory.bin := append-kernel | pad-to $$$$(KERNEL_SIZE) | \
+		append-ubi | linksys-image type=$$$$(DEVICE_MODEL)
 endef
 
 define Device/linksys_mx2000
