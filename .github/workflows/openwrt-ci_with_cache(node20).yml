@@ -71,7 +71,7 @@ jobs:
       - name: Download custom package
         run: |
           git clone https://github.com/esirplayground/luci-app-poweroff.git ./package/lean/uci-app-poweroff
-          
+          git clone https://github.com/snowie2000/geoview.git ./package/lean/geoview
       - name: Update feeds
         run: |
           sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
